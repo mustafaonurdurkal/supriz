@@ -112,15 +112,11 @@ button:hover{
 </div>
 
 <script>
+/* Statik isim */
+let isim = "Kübra";
 
-/* İsimle kişiselleştirme */
-let isim = prompt("Güzel insanın adı ne? 😊");
-
-if(isim && isim.trim() !== ""){
-    document.getElementById("baslik").innerHTML = isim + " için küçük bir sürpriz 🎁";
-    document.getElementById("kisiMesaj").innerHTML =
-    isim + ", sana bir şey göndermek istiyorum 😌";
-}
+document.getElementById("baslik").innerHTML = isim + " için küçük bir sürpriz 🎁";
+document.getElementById("kisiMesaj").innerHTML = isim + ", sana bir şey göndermek istiyorum 😌";
 
 /* Form gönderme */
 document.getElementById("adresForm").addEventListener("submit", function(e){
@@ -186,7 +182,6 @@ function confettiEffect(){
         },3000);
     }
 }
-
 </script>
 
 </body>
