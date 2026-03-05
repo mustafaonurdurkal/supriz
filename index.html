@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Senin İçin ❤️</title>
+<style>
+body{
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial;
+    text-align:center;
+    color:white;
+    margin-top:100px;
+}
+.card{
+    background:white;
+    color:#333;
+    padding:40px;
+    border-radius:15px;
+    width:400px;
+    margin:auto;
+}
+button{
+    background:#ff4d6d;
+    border:none;
+    padding:10px 20px;
+    color:white;
+    font-size:16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+input{
+    width:100%;
+    padding:8px;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<h1>Sana Küçük Bir Sürprizim Var 🎁</h1>
+
+<div class="card">
+<p>Detay vermiyorum ama sana bir şey göndermek istiyorum 😌</p>
+<p>Adresini yazarsan sürpriz yola çıkacak ❤️</p>
+
+<input type="text" id="adres" placeholder="Adresini buraya yaz">
+<br><br>
+<button onclick="gonder()">Gönder</button>
+
+<p id="mesaj"></p>
+</div>
+
+<script>
+function gonder(){
+    let adres = document.getElementById("adres").value;
+    if(adres === ""){
+        alert("Adres yazman gerekiyor 😊");
+    } else {
+        document.getElementById("mesaj").innerHTML = 
+        "Tamam aşkım ❤️ Sürpriz hazırlanıyor...";
+    }
+}
+</script>
+
+</body>
+</html>
