@@ -43,24 +43,38 @@ input{
 <p>Detay vermiyorum ama sana bir şey göndermek istiyorum 😌</p>
 <p>Adresini yazarsan sürpriz yola çıkacak ❤️</p>
 
-<input type="text" id="adres" placeholder="Adresini buraya yaz">
-<br><br>
-<button onclick="window.location.href='https://docs.google.com/spreadsheets/d/1Ajxf1RLAjqy9wYm6xIDJcGellhLcm3ZXQtAMv0AhU_k/edit?usp=sharing'">
-Adresimi Yazıyorum ❤️
-</button>
+<form id="adresForm">
+    <input type="text" name="adres" placeholder="Adresini buraya yaz" required>
+    <br><br>
+    <button type="submit">Adresimi Yazıyorum ❤️</button>
+</form>
+
 <p id="mesaj"></p>
 </div>
 
 <script>
-function gonder(){
-    let adres = document.getElementById("adres").value;
-    if(adres === ""){
-        alert("Adres yazman gerekiyor 😊");
-    } else {
-        document.getElementById("mesaj").innerHTML = 
-        "Tamam aşkım ❤️ Sürpriz hazırlanıyor...";
-    }
-}
+document.getElementById("adresForm").addEventListener("submit", function(e){
+    e.preventDefault(); // sayfa yenilenmesin
+
+    let formData = new FormData(this);
+
+    fetch("https://formspree.io/f/mykngeop", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if(response.ok){
+            document.getElementById("mesaj").innerHTML =
+            "Tamam ❤️ Sürpriz hazırlanıyor...";
+            this.reset();
+        } else {
+            document.getElementById("mesaj").innerHTML =
+            "Bir hata oluştu 😢";
+        }
+    });
+});
 </script>
 
 </body>
